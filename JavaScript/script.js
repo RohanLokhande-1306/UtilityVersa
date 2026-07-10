@@ -1,3 +1,4 @@
+
 const themeButton = document.querySelector(".theme");
    const savedTheme = localStorage.getItem("theme");
 
@@ -11,5 +12,17 @@ const themeButton = document.querySelector(".theme");
          } else {
             localStorage.setItem("theme", "light");
          }
+
+});
+//************************************Calculator888888888*/
+const display = document.querySelector("#display");
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(function(button){
+
+    button.addEventListener("click", function(){
+      const value = button.textContent;
+      display.value += value;
+    });
 
 });
