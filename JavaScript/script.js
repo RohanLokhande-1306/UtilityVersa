@@ -30,15 +30,23 @@ buttons.forEach(function(button){
          else if (value === "⌫") {
             display.value = display.value.slice(0, -1);
          }
-         else if (value === "=") {
-            let expression = display.value;
-            expression = expression.replace(/×/g, "*");
-            expression = expression.replace(/÷/g, "/");
-            display.value = eval(expression);
-        }
-        else{
+         else if (value === "=")
+            {
+               try 
+            {
+               let expression = display.value;
+               expression = expression.replace(/×/g, "*");
+               expression = expression.replace(/÷/g, "/");
+               display.value = eval(expression);
+            }
+         catch 
+           {
+               display.value = "Syntax Error";
+           }
+            }
+          else{
             display.value += value;
-        }
+         }
 
     });
 
