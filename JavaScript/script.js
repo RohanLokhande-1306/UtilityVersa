@@ -21,8 +21,25 @@ const buttons = document.querySelectorAll(".btn");
 buttons.forEach(function(button){
 
     button.addEventListener("click", function(){
-      const value = button.textContent;
-      display.value += value;
+
+        const value = button.textContent;
+
+       if (value === "C") {
+            display.value = "";
+         }
+         else if (value === "⌫") {
+            display.value = display.value.slice(0, -1);
+         }
+         else if (value === "=") {
+            let expression = display.value;
+            expression = expression.replace(/×/g, "*");
+            expression = expression.replace(/÷/g, "/");
+            display.value = eval(expression);
+        }
+        else{
+            display.value += value;
+        }
+
     });
 
 });
